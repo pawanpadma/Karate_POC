@@ -33,7 +33,7 @@ public class DemoTestRunnerTest {
 
     @Test
     public void testParallel() {
-        Results results = Runner.path("classpath:com/demo/tests").tags("@createUser").parallel(1);
+        Results results = Runner.path("classpath:com/demo/tests").tags("@getusers").parallel(1);
         //assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
         generateReport(results.getReportDir());
         Assertions.assertTrue(results.getFailCount() == 0,results.getErrorMessages());

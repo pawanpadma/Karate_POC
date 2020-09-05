@@ -13,58 +13,17 @@ Feature: To get score details
     And header Authorization = BearerToken
     When method get
     Then status 200
-    #* print 'value from response is', response
-    * def product = { 'id': #number, 'product': '#string' }
-    Then match each response.result contains
+    * print 'value from response is', response.data[0]
+    Then match get[0] response.data contains
     """
     {
-      "website": '#string',
-      "address": '#string',
-      "gender": '#string',
-      "phone": '#string',
-      "_links": {
-        "edit": {
-          "href": '#string'
-        },
-        "self": {
-          "href": '#string'
-        },
-        "avatar": {
-          "href": '#string'
-        }
-      },
-      "dob": '#regex \\d{4}-\\d{2}-\\d{2}',
-      "last_name": '#string',
-      "id": '#string',
-      "first_name": '#string',
-      "email": '#string',
-      "status": '#string'
-    }
-    """
-    Then match  response.result[0] contains
-    """
-    {
-      "website": '#string',
-      "address": '#string',
-      "gender": '#string',
-      "phone": '#string',
-      "_links": {
-        "edit": {
-          "href": '#string'
-        },
-        "self": {
-          "href": '#string'
-        },
-        "avatar": {
-          "href": '#string'
-        }
-      },
-      "dob": '#regex \\d{4}-\\d{2}-\\d{2}',
-      "last_name": '#string',
-      "id": '#string',
-      "first_name": '#string',
-      "email": '#string',
-      "status": '#string'
+      "id": #number,
+      "name": "#string",
+      "email": "#string",
+      "gender": "#string",
+      "status": "#string",
+      "created_at": "#string",
+      "updated_at": "#string"
     }
     """
 
