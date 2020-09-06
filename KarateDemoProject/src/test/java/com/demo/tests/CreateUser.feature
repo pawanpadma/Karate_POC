@@ -9,39 +9,29 @@ Feature: Enroll the member with all the valid values
   Scenario: Submit a request to enroll a member
     * def memberPayload = read('classpath:Resources/PayLoads/User.json')
     * print 'value from json is ',memberPayload
-    * set memberPayload.first_name = 'karate'+ RandomString
+    * set memberPayload.name = 'karate'+ RandomString
     * print "Name is ",memberPayload.first_name
     * set memberPayload.email = 'karate' + randomEmail()
-    * set memberPayload.last_name = 'karate'+ RandomString
     Given path '/public-api/users'
     And header Authorization = BearerToken
     And request memberPayload
     When method post
     Then status 200
-    Then match response.result contains
+    * print 'Response from the call is ',response.result
+    Then match response contains
     """
-     {
-    "id": "#string",
-    "first_name": "#string",
-    "last_name": "#string",
-    "gender": "#string",
-    "dob": null,
-    "email": "#string",
-    "phone": null,
-    "website": null,
-    "address": null,
-    "status": "active",
-    "_links": {
-      "self": {
-        "href": "#string"
-      },
-      "edit": {
-        "href": "#string"
-      },
-      "avatar": {
-        "href": null
-      }
+ {
+    "code": #number,
+    "meta": null,
+    "data": {
+        "id": #number,
+        "name": "#string",
+        "email": "#string",
+        "gender": "#string",
+        "status": "#string",
+        "created_at": "#string",
+        "updated_at": "#string"
     }
-  }
+}
     """
-  * match response.result.first_name == 'karate'+ RandomString
+  * match response.data.name == 'karate'+ RandomString

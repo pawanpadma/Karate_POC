@@ -1,7 +1,6 @@
 {
-  "first_name":"Brian",
-  "last_name":"Ratke",
-  "gender":"male",
+  "name":"Briaan",
+  "gender":"Male",
   "email":"lew19@roberts.com",
-  "status":"active"
+  "status":"Active"
 }

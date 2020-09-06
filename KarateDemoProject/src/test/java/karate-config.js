@@ -30,7 +30,7 @@ function fn() {
     // and it sets a variable called 'authInfo' used in headers-single.feature
     //config.authInfo = { authToken: result.Token };
     //config.mytoken= result.token;
-     config.BearerToken= 'Bearer -TQD0GZMZ72Og6YgRF-MKLscZZ9xnlgvIN0H';
+     config.BearerToken= 'Bearer 1beb7ac19c18d03e3da482b3aca7e68525e2cfb7d95f6aaf7e3301468cc5cc8';
 var randomEmail = function() {
         return 'karate-test-user' + Date.now() + Math.floor(Math.random() * 1000) + '@getnada.com'
     }
